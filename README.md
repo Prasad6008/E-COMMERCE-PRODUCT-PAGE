@@ -1,7 +1,6 @@
 # 👋 Hi, I'm Prasad R S
 
-### Full Stack Developer | Shopify Developer | Confident Speaker
-
+### Full Stack Developer | Shopify Developer 
 I'm **Prasad R S**, a passionate developer who enjoys turning ideas into functional, user-friendly digital experiences.
 
 I love building web applications, solving problems through code, exploring new technologies, and continuously improving my development skills.
