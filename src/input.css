@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal-left-right {
+  animation: revealLeftToRight 1.5s ease-in-out forwards;
+}
+@keyframes revealLeftToRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   New: entrance animations (CSS only, no conflict with Motion).
+   `backwards` fill mode means no transform is left on the element after
+   the animation ends, so Motion's layout animations measure it cleanly.
+------------------------------------------------------------------- */
+@keyframes enter-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes enter-fade-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.75; }
+  50%      { opacity: 1; }
+}
+
+.enter-fade-up {
+  animation: enter-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.enter-fade-down {
+  animation: enter-fade-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .enter-fade-up,
+  .enter-fade-down,
+  .glow-pulse {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Your existing `fade-in` and `reveal-left-right` classes.
+   They weren't in the files you shared, so I assume you already define
+   them elsewhere. If you do, DELETE this block and keep your versions.
+   If not, these are working fallbacks.
+------------------------------------------------------------------- */
+@keyframes fade-in-fallback {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes reveal-left-right-fallback {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0 0 0);    opacity: 1; }
+}
+
+.fade-in {
+  animation: fade-in-fallback 0.8s ease-out 0.3s backwards;
+}
+
+.reveal-left-right {
+  animation: reveal-left-right-fallback 0.8s ease-out 0.2s backwards;
+}
+
+.glow-breath {
+  animation: glowBreath 3s ease-in-out infinite;
+}
+
+@keyframes glowBreath {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+    box-shadow:
+      0 0 10px #ff1a35,
+      0 0 25px #ff1a35,
+      0 0 35px #ff1a35;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow:
+      0 0 15px #ff1a35,
+      0 0 35px #ff1a35,
+      0 0 50px #ff1a35;
+  }
+}
+
+
+
